@@ -1,0 +1,10 @@
+//Global configurations about Graphql Core functionality
+import { GraphQLServer } from "graphql-yoga";
+import resolvers from "./graphql/resolvers";
+import path from "path";
+// mapear archivos staticos
+
+export const server = new GraphQLServer({
+  typeDefs: path.join(__dirname, "graphql/schema.graphql"),
+  resolvers,
+});
