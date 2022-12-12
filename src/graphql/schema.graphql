@@ -1,9 +1,13 @@
 type Query {
 ping: String
 
-    getNotes : [Note]
-    getNoteById(id: ID) : Note
+    getMovies : [Movie]
+    getMovieById(id: ID) : Movie
     login(email: String, password: String): [User]
+
+    getNoteById(id: ID) : Note
+    getNotes : [Note]
+    
 } 
 type Note {
   id:ID
@@ -12,6 +16,15 @@ type Note {
   date: String
   author: String
 }
+type Movie{
+_id:ID
+title: String!
+description: String
+likes: Int
+image: String
+date_of_released: String
+}
+
 type User{
 email: String
 password: String
@@ -19,9 +32,15 @@ password: String
 
 
 type Mutation { 
+
+
   createNote(input: NoteInput) : Note
+  createMovie(input: MovieInput) : Movie
   updateNote(input: NoteInput, id : ID ): Note
   removeNote( id : ID ): [Note]
+  
+ 
+
 }
 input NoteInput{
   title: String!
@@ -29,6 +48,12 @@ input NoteInput{
   author: String
   date: String
   }
+input MovieInput{
+_id: ID
+title: String!
+description: String
+likes: Int
+image: String
+date_of_released: String
 
-
-
+}
