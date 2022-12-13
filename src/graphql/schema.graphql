@@ -4,18 +4,7 @@ ping: String
     getMovies : [Movie]
     getMovieById(id: ID) : Movie
     login(email: String, password: String): [User]
-
-    getNoteById(id: ID) : Note
-    getNotes : [Note]
-    
-} 
-type Note {
-  id:ID
-  title: String!
-  content: String
-  date: String
-  author: String
-}
+}    
 type Movie{
 _id:ID
 title: String!
@@ -32,28 +21,16 @@ password: String
 
 
 type Mutation { 
-
-
-  createNote(input: NoteInput) : Note
   createMovie(input: MovieInput) : Movie
-  updateNote(input: NoteInput, id : ID ): Note
-  removeNote( id : ID ): [Note]
-  
- 
+  updateMovie(input: MovieInput, id : ID ): Movie
+  removeMovie(id: ID) : [Movie]
 
 }
-input NoteInput{
-  title: String!
-  content: String
-  author: String
-  date: String
-  }
+
 input MovieInput{
-_id: ID
 title: String!
 description: String
 likes: Int
 image: String
 date_of_released: String
-
 }
