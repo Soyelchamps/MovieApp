@@ -24,7 +24,7 @@ type Mutation {
   createMovie(input: MovieInput) : Movie
   updateMovie(input: MovieInput, id : ID ): Movie
   removeMovie(id: ID) : [Movie]
-
+  updateLikesMovieById(id: ID): Movie
 }
 
 input MovieInput{
